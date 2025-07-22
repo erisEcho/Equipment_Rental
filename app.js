@@ -17,6 +17,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// 中间件，将public设为静态资源目录
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

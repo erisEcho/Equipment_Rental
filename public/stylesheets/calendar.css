@@ -1,0 +1,31 @@
+.fc {
+    width: 80%;
+    margin: 40px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fc-daygrid-day {
+    padding: 0;
+    text-align: left;
+}
+
+.fc-daygrid-day-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    transition: all 0.3s;
+    text-decoration: none !important;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+    background-color: gold;
+    color: black;
+    border-radius: 50%;
+    
+}
