@@ -124,4 +124,54 @@ router.post('/booking/update/:id', async function (req, res) {
   }
 });
 
+// Search Bookings
+// $regex 模糊匹配
+// $options: 'i' 忽略大小写
+
+// get: /booking/search?email=abc&numTickets=2 规定输入的url
+// res.render('bookings', { bookings: result }); 将result渲染到bookings.ejs模板中, 规定实际观察到的网页是哪个文件
+router.get('/booking/search', async function (req, res) {
+  const db = await connectToDB();
+  try {
+    let query = {};
+    if (req.query.email) {
+      // query.email = req.query.email;
+      query.email = { $regex: req.query.email, $options: 'i'};
+    }
+    if (req.query.numTickets) {
+      query.numTickets = parseInt(req.query.numTickets);
+    }
+
+    let result = await db.collection("bookings").find(query).toArray();
+    res.render('bookings', { bookings: result });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  } finally {
+    await db.client.close();
+  }
+});
+
+// Pagination based on query parameters page and limit, also returns total number of documents
+// skip： 跳过多少条数据，到达需要的页数
+// result： 跳过skip条数据后，再取limit条数据
+// total： 数据库中总共有多少条数据
+router.get('/booking/paginate', async function (req, res) {
+  const db = await connectToDB();
+  try {
+    let page = parseInt(req.query.page) || 1;
+    let perPage = parseInt(req.query.perPage) || 10;
+    let skip = (page - 1) * perPage;
+
+    let result = await db.collection("bookings").find().skip(skip).limit(perPage).toArray();
+    let total = await db.collection("bookings").countDocuments();
+
+    res.render('paginate', { bookings: result, total: total, page: page, perPage: perPage });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+  finally {
+    await db.client.close();
+  }
+});
+
 module.exports = router;

@@ -47,7 +47,31 @@
                 </div>
         </fieldset>
 
-        <script>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Favourite Team</label>
+            <select class="form-select" name="team" aria-label="Default select example" onchange="teamSelected(this.value)">
+                <option value="" selected>Open this menu</option>
+                <option value="Avengers">Avengers</option>
+                <option value="JLA">Justive League</option>
+            </select>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Favourite Hero</label>
+            <select class="form-select" name="superhero" aria-label="Default select example" id="superhero" disabled>
+
+            </select>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col col-form-label"><input class="form-check-input" name="terms" value="true"type="checkbox" required> I have read and agree to the terms and conditions </label>
+            
+        </div>
+
+        <button type="submit" class="btn btn-primary">Buy Tickets</button>
+    </form>
+
+            <script>
 
             const avengers = ['Iron Man', 'Captain America', 'Thor', 'Hulk', 'Black Widow', 'Hawkeye'];
             const justiceLeague = ['Superman', 'Batman', 'Wonder Woman', 'Flash', 'Aquaman', 'Cyborg'];
@@ -80,31 +104,6 @@
             }
 
         </script>
-
-
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Favourite Team</label>
-            <select class="form-select" name="team" aria-label="Default select example" onchange="teamSelected(this.value)">
-                <option value="" selected>Open this menu</option>
-                <option value="Avengers">Avengers</option>
-                <option value="JLA">Justive League</option>
-            </select>
-        </div>
-
-        <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Favourite Hero</label>
-            <select class="form-select" name="superhero" aria-label="Default select example" id="superhero" disabled>
-
-            </select>
-        </div>
-
-        <div class="row mb-3">
-            <label class="col col-form-label"><input class="form-check-input" name="terms" value="true"type="checkbox" required> I have read and agree to the terms and conditions </label>
-            
-        </div>
-
-        <button type="submit" class="btn btn-primary">Buy Tickets</button>
-    </form>
 <!-- 
     <style>
         .pink{
