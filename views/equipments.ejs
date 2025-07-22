@@ -16,21 +16,17 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <span class="navbar-brand fs-3">Equipment Rental</span>
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link text-secondary fw-normal <%= (currentPage === 'home') ? 'fw-bold' : '' %>"
-            href="./index.ejs">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-secondary fw-normal <%= (currentPage === 'equipments') ? 'fw-bold' : '' %>"
-            href="./equipments.ejs">Equipme1</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-current="page">Equipment Rental</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./index.ejs" aria-checked="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">Equipme1</a>
+    </li>
+  </ul>
 
 </body>
 
