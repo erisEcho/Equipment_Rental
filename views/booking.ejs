@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <%= booking.email %>
+            </td>
+            <td>
+                <%= booking.numTickets %>
+            </td>
+            <td>
+                <%= booking.team %>
+            </td>
+            <td>
+                <%= booking.hero %>
+            </td>
+        </tr>
+    </table>
+
+
+    <form class="mb-3" action="/booking/delete/<%= booking._id %>" method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+</body>
+
+</html>
