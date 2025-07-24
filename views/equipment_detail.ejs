@@ -25,11 +25,11 @@
                 <span class="navbar-brand fs-3 mb-0 me-4">Equipment Rental</span>
 
                 <li class="nav-item me-3">
-                    <a class="nav-link text-secondary fw-normal p-0" href="./">Home</a>
+                    <a class="nav-link text-secondary fw-normal p-0" href="/">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-secondary fw-bold p-0" href="./equipments">Equipments</a>
+                    <a class="nav-link text-secondary fw-bold p-0" href="/equipments">Equipments</a>
                 </li>
             </ul>
 
@@ -42,8 +42,10 @@
         <ol class="breadcrumb d-flex justify-content-between align-items-center">
             <div class="d-flex">
                 <li>&nbsp;&nbsp;</li>
-                <li class="breadcrumb-item active"><a href="./equipments">Equipments</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Project_name</li>
+                <li class="breadcrumb-item active"><a href="/equipments">Equipments</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <%=equipment.name %>@<%=equipment.location %>
+                </li>
             </div>
         </ol>
     </nav>
@@ -51,14 +53,21 @@
     <hr>
 
     <!-- Cards -->
-    <div class="card" style="width: 18rem;">
-      <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+    <div class="container-fluid">
+        <div class="card" style="width: 48rem;">
+            <img src="<%= equipment.imageURL %>" class="card-img-top" alt="<%= equipment.name %>"
+                style="height: 320px; object-fit: cover;">
+            <div class="card-body" style="height: 180px;">
+                <h5 class="card-title">
+                    <%= equipment.name %>@<%= equipment.location %>
+                </h5>
+                <p class="card-text">
+                    <%= equipment.description || 'No description available' %>
+                </p>
+            </div>
+        </div>
     </div>
+
 
 </body>
 

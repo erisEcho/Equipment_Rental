@@ -15,105 +15,110 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
+    <form action="/equipment/add" method="post">
+        <!-- Nav Links -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid d-flex align-items-center">
 
-    <!-- Nav Links -->
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid d-flex align-items-center">
+                <ul class="nav d-flex align-items-center p-0 m-0">
+                    <!-- Logo/Title: Equipment Rental -->
+                    <span class="navbar-brand fs-3 mb-0 me-4">Equipment Rental</span>
 
-            <ul class="nav d-flex align-items-center p-0 m-0">
-                <!-- Logo/Title: Equipment Rental -->
-                <span class="navbar-brand fs-3 mb-0 me-4">Equipment Rental</span>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-secondary fw-normal p-0" href="/">Home</a>
+                    </li>
 
-                <li class="nav-item me-3">
-                    <a class="nav-link text-secondary fw-normal p-0" href="./">Home</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary fw-bold p-0" href="/equipments">Equipments</a>
+                    </li>
+                </ul>
 
-                <li class="nav-item">
-                    <a class="nav-link text-secondary fw-bold p-0" href="./equipments">Equipments</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-    <!-- Breadcrumb -->
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb d-flex justify-content-between align-items-center">
-            <div class="d-flex">
-                <li>&nbsp;&nbsp;</li>
-                <li class="breadcrumb-item active"><a href="./equipments">Equipments</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add</li>
             </div>
-        </ol>
-    </nav>
+        </nav>
 
-    <hr>
+        <!-- Breadcrumb -->
 
-    <div class="container-fluid">
-        <!-- forms -->
-        <form>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="InputName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="InputName" aria-describedby="name">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <li>&nbsp;&nbsp;</li>
+                    <li class="breadcrumb-item active"><a href="/equipments">Equipments</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add</li>
                 </div>
+            </ol>
+        </nav>
 
-                <div class="col-md-6">
-                    <label for="InputLocation" class="form-label">Location</label>
-                    <select class="form-select" aria-label="Default select example" name="location" id="location">
-                        <option value="" selected>Open this select menu</option>
-                        <option value="FSC801C">FSC801C</option>
-                        <option value="FSC801D">FSC801D</option>
-                        <option value="FSC801E">FSC801E</option>
-                        <option value="FSC801E">FSC901E</option>
-                    </select>
+        <hr>
+
+        <div class="container-fluid">
+            <!-- forms -->
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="InputName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="InputName" aria-describedby="name" name="name">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="InputLocation" class="form-label">Location</label>
+                        <select class="form-select" aria-label="Default select example" name="location" id="location">
+                            <option value="" selected>Open this select menu</option>
+                            <option value="FSC801C">FSC801C</option>
+                            <option value="FSC801D">FSC801D</option>
+                            <option value="FSC801E">FSC801E</option>
+                            <option value="FSC801E">FSC901E</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <label for="InputDescription" class="form-label">Description</label>
+
+            <div class="form-floating">
+                <textarea class="form-control" id="InputDescription" style="height: 100px"
+                    name="description"></textarea>
+                <label for="floatingTextarea2"></label>
+            </div>
+
+            <br>
+
+            <div class="container-fluid">
+
+            
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="InputImageURL" class="form-label">Image URL</label>
+                        <input type="url" class="form-control" id="InputImageURL" aria-describedby="imageURL"
+                            name="imageURL">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="contactPerson" class="form-label">Contact Person</label>
+                        <input type="text" class="form-control" id="contactPerson" aria-describedby="contactPerson"
+                            name="contactPerson">
+                    </div>
+
+                    <!-- color picker!!! -->
+                    <div class="col-2 my-2">
+                        <label for="color" class="form-label">Color</label>
+                        <input type="color" class="form-control form-control-color roundrect-color" id="color"
+                            name="color" style="width:100%" required>
+                    </div>
                 </div>
             </div>
-        </form>
 
-        <label for="InputDescription" class="form-label">Description</label>
+            <br>
 
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a Description here" id="InputDescription"
-                style="height: 100px"></textarea>
-            <label for="floatingTextarea2"></label>
-        </div>
 
-        <br>
-
-        <form>
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="InputImageURL" class="form-label">Image URL</label>
-                    <input type="url" class="form-control" id="InputImageURL" aria-describedby="ImageURL">
-                </div>
-
-                <div class="col-md-4">
-                    <label for="ContactPerson" class="form-label">Contact Person</label>
-                    <input type="text" class="form-control" id="ContactPerson" aria-describedby="ContactPerson">
-                </div>
-
-                <!-- color picker!!! -->
-                <div class="col-2 my-2">
-                    <label for="inputcolor3" class="form-label">Color</label>
-                    <input type="color" class="form-control form-control-color roundrect-color" id="inputcolor3"
-                        name="color" style="width:100%" required>
-                </div>
-            </div>
-        </form>
-
-        <br>
-
-        <form action="/addEquipment" method="post">
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="Highlighted">
-                <label class="form-check-label" for="Highlighted">Highlighted</label>
+                <input type="checkbox" class="form-check-input" id="highlighted" name="highlighted">
+                <label class="form-check-label" for="highlighted">Highlighted</label>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
-        </form>
 
-    </div>
+
+        </div>
+    </form>
 
 </body>
 

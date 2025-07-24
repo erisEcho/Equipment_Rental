@@ -45,21 +45,44 @@
                 <li class="breadcrumb-item"><a href="#">Equipments</a></li>
                 <li class="breadcrumb-item active" aria-current="page"></li>
             </div>
-            <input class="btn btn-primary" type="button" value="Add">
+            <a href="./equipment/add">
+                <input class="btn btn-primary" type="button" value="Add">
+            </a>
+
         </ol>
     </nav>
 
     <hr>
 
     <!-- Cards -->
-    <div class="card" style="width: 18rem;">
-      <svg aria-label="Placeholder: Image cap" class="bd-placeholder-img card-img-top" height="180" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
+    <div class="container-fluid">
+        <div class="row">
+            <% for (var equipment of equipments) { %>
+
+                <div class="card" style="width: 18rem;">
+                    <a href="./equipment/detail/<%= equipment._id %>">
+                        <img src="<%= equipment.imageURL %>" class="card-img-top" alt="<%= equipment.name %>"
+                            style="height: 180px; object-fit: cover;">
+                    </a>
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= equipment.name %>@<%= equipment.location %>
+                        </h5>
+                        <p class="card-text">
+                            <%= equipment.description || 'No description available' %>
+                        </p>
+                        <a href="./equipment/edit/<%= equipment._id %>" class="btn btn-primary">Edit</a>
+                    </div>
+
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <% }; %>
+        </div>
     </div>
+
 
 </body>
 
